@@ -410,6 +410,9 @@ class UiStore {
       this.secondaryRightSidebar = panel;
     } else {
       this.rightSidebar = panel;
+      // Persist so a later write of other UI state doesn't resurrect a stale
+      // panel (e.g. comments reopening after a reload).
+      this.persist();
     }
   };
 
